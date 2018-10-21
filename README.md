@@ -65,6 +65,84 @@ Now you can run the React frontend with the following command:
 npm start
 ```
 
+## Usage
+
+Once you're up and running, you can get a nice user interface with built-in documentation by going to the [GraphQL Playground](https://graphqlbin.com) and entering in `http://localhost:4000/graphql`. Queries shouldn't require authentication, but if you want to run a mutation you'll need to authenticate first.
+
+#### Authenticating
+
+Go to <http://localhost:4000/access-token>. This should prompt you to log in to your Okta developer account if you haven't already. Once you're authenticated, the page should give you an access token that will look something like `eyJraW...j5gsJQ`, only much longer.
+
+In the GraphQL Playground, click on `HTTP HEADERS`, then modify it to include an `authorization` header with your token. It should look like this:
+
+```json
+{
+  "authorization": "Bearer eyJraW...j5gsJQ"
+}
+```
+
+**Note**: Again, the real token will be much longer. Just copy and paste it from the previous page.
+
+#### Example Queries
+
+Here are some examples to get you started. Feel free to play around with them and get creative.
+
+##### Get all posts and their authors
+
+```graphql
+query {
+  posts {
+    id
+    author {
+      id
+      firstName
+      lastName
+    }
+    body
+  }
+}
+```
+
+##### Get a single post, it's author, and all that author's posts
+
+```graphql
+query {
+  post(id: 2) {
+    id
+    author {
+      firstName
+      posts {
+        id
+        body
+      }
+    }
+    body
+  }
+}
+```
+
+##### Create a new post, returning info about it and yourself
+
+```graphql
+mutation {
+  submitPost(input: {
+    body: "Hello, world!"
+  }) {
+    id
+    body
+    author {
+      id
+      firstName
+      lastName
+      posts {
+        id
+        body
+      }
+    }
+  }
+}
+```
+
 ## Links
 
 This example uses the [Okta Node SDK](https://github.com/okta/okta-sdk-nodejs), the [Okta JWT Verifier](https://github.com/okta/okta-oidc-js/tree/master/packages/jwt-verifier), and the [Okta OIDC Middleware](https://github.com/okta/okta-oidc-js/tree/master/packages/oidc-middleware).
