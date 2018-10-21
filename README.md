@@ -53,10 +53,11 @@ OKTA_CLIENT_SECRET={yourClientSecret}
 OKTA_TOKEN={yourOktaToken}
 ```
 
-You also need an app secret. One way to get a random `APP_SECRET` is to use the following command line, which will generate a random value and add it to your `.env` file.
+You also need an app secret. One way to get a random `APP_SECRET` is to use the following commands, which will generate a random value and add it to your `.env` file.
 
 ```bash
-echo "APP_SECRET=`openssl rand -base64 32`" >> .env
+npm install -g uuid-cli
+echo "APP_SECRET=`uuid`" >> .env
 ```
 
 Now you can run the React frontend with the following command:
