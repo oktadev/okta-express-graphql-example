@@ -103,7 +103,7 @@ query {
 }
 ```
 
-##### Get a single post, it's author, and all that author's posts
+##### Get a single post, its author, and all that author's posts
 
 ```graphql
 query {
