@@ -1,6 +1,6 @@
 # Example API Using GraphQL, Express, and Okta
 
-This is an example API, showing how to create a GraphQL endpoint in Node. The mutations are protected behind authentication provided by Okta.
+This is an example API, showing how to create a GraphQL endpoint in Node. The mutations are protected behind authentication provided by Okta. To follow along step-by-step, [check out the blog post](https://developer.okta.com/blog/2018/09/27/build-a-simple-api-service-with-express-and-graphql).
 
 **Prerequisites**: [Node.js](https://nodejs.org/en/).
 
