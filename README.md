@@ -60,7 +60,7 @@ npm install -g uuid-cli
 echo "APP_SECRET=`uuid`" >> .env
 ```
 
-Now you can run the React frontend with the following command:
+Now you can run the GraphQL server with the following command:
 
 ```bash
 npm start
